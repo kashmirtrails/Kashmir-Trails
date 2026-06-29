@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashmir Trails | Pahalgam Hub</title>
+    
+    <!-- Google Fonts aur Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #38bdf8;
+        }
+
+        .location-badge {
+            font-size: 12px;
+            background: #0ea5e9;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        nav a {
+            color: #f1f5f9;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?q=80&w=1200&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #e2e8f0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn:hover {
+            background: #0ea5e9;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1e293b;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #38bdf8;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-box i {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .dest-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dest-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            width: 350px;
+            transition: all 0.3s ease;
+        }
+
+        .dest-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .dest-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .dest-content {
+            padding: 25px;
+        }
+
+        .view-details-btn {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background: #f1f5f9;
+            color: #0ea5e9;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .dest-card:hover .view-details-btn {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .utility-section {
+            background: #1e293b;
+            color: white;
+        }
+        .utility-box {
+            background: #0f172a;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .reviews-container {
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+        }
+
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid #38bdf8;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .stars { color: #f59e0b; }
+
+        .bg-gray { background-color: #f1f5f9; }
+        
+        /* Direct Contact Cards Styling */
+        .contact-cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-action-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-action-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-action-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-action-card.email-card i { color: #ea4335; }
+        .contact-action-card.wa-card i { color: #25d366; }
+
+        .contact-action-card h3 {
+            font-size: 1.2rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .contact-action-card p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        .email-btn { background-color: #0ea5e9; }
+        .email-btn:hover { background-color: #0ea5e9; }
+        .wa-btn { background-color: #25d366; }
+        .wa-btn:hover { background-color: #21b858; }
+
+        .contact-info-bar {
+            text-align: center;
+            background: #0f172a;
+            padding: 15px;
+            color: #e2e8f0;
+            font-size: 14px;
+            border-top: 1px solid #334155;
+        }
+
+        .contact-info-bar a {
+            color: #38bdf8;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 30px 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919682626906?text=Hi%20Kashmir%20Trails,%20I%20want%20to%20plan%20a%20trip." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-mountain-sun"></i> Kashmir Trails 
+            <span class="location-badge"><i class="fa-solid fa-location-dot"></i> Pahalgam</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#packages">Tour Packages</a>
+            <a href="#permits">Permits</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div>
+            <h1>Discover Heaven with Kashmir Trails</h1>
+            <p>Custom Itineraries, Premium Alpine Treks & Scenic Lake Stays From Pahalgam</p>
+            <a href="#contact" class="btn"><i class="fa-solid fa-comments"></i> Contact For Booking</a>
+        </div>
+    </section>
+
+    <!-- Core Services -->
+    <section>
+        <h2 class="section-title">Our Himalayan Expertise</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fa-solid fa-campground"></i>
+                <h3>Basecamp Pahalgam</h3>
+                <p>Direct field operations and localized backup support for all routes.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-person-hiking"></i>
+                <h3>Expert Local Guides</h3>
+                <p>Native professionals specialized in high-altitude valleys and passes.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Safety First Protocol</h3>
+                <p>Equipped with complete medical kits and real-time transit tracking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="bg-gray">
+        <h2 class="section-title">Signature Paradise Packages</h2>
+        <div class="dest-container">
+            
+            <!-- Tarsar Marsar Trek -->
+            <div class="dest-card" style="border: 2px solid #38bdf8;">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=400&auto=format&fit=crop" alt="Tarsar Marsar">
+                <div class="dest-content">
+                    <span style="background: #38bdf8; color: #0f172a; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 5px;">⭐ Highly Rated</span>
+                    <h3>Tarsar Marsar Twin Lakes</h3>
+                    <p><i class="fa-solid fa-clock"></i> 6 Nights / 7 Days (From Pahalgam)</p>
+                    <p style="font-size:13px; color:#64748b; margin-top:5px;">Glacial lakes, velvet meadows, and beautiful valley ridges.</p>
+                    <a href="#contact" class="view-details-btn">Enquire Details</a>
+                </div>
+            </div>
+
+            <!-- Srinagar, Gulmarg & Sonamarg Luxury Resort -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=400&auto=format&fit=crop" alt="Kashmir Luxury">
+                <div class="dest-content">
+                    <h3>Kashmir Classic Triangle</h3>
+                    <p><i class="fa-solid fa-clock"></i> 5 Nights / 6 Days</p>
+                    <p style="font-size:13px; color:#64748b; margin-top:5px;">Dal Lake Houseboat Stay, Gulmarg Gondola & Sonamarg Glaciers.</p>
+                    <a href="#contact" class="view-details-btn">Enquire Details</a>
+                </div>
+            </div>
+
+            <!-- Ladakh Overland Expedition -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?q=80&w=400&auto=format&fit=crop" alt="Ladakh">
+                <div class="dest-content">
+                    <h3>Leh Ladakh & Pangong Loop</h3>
+                    <p><i class="fa-solid fa-clock"></i> 7 Nights / 8 Days</p>
+                    <p style="font-size:13px; color:#64748b; margin-top:5px;">Khardungla Pass, Magnetic Hill, and Nubra Valley camping dunes.</p>
+                    <a href="#contact" class="view-details-btn">Enquire Details</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Advanced Interactive Permit Tool -->
+    <section id="permits" class="utility-section">
+        <h2 class="section-title" style="color:white;">Trek & Inner Line Permit Checker</h2>
+        <div class="utility-box">
+            <p style="margin-bottom:15px; color:#94a3b8;">Select destination to check permit requirement status</p>
+            <select id="permitLocation" style="width:100%; padding:12px; border-radius:6px; font-size:16px;">
+                <option value="tarsar">Tarsar Marsar Trek (Pahalgam Base)</option>
+                <option value="gulmarg">Gulmarg Phase 2 Backcountry</option>
+                <option value="pangong">Pangong Lake & Nubra (Ladakh ILP)</option>
+                <option value="sonamarg">Thajiwas Glacier Route</option>
+            </select>
+            <button onclick="checkPermit()" class="submit-btn" style="margin-top:15px; background:#38bdf8; color:#0f172a;">Check Requirement Status</button>
+            <h4 id="permitResult" style="margin-top:20px; color:#38bdf8; font-weight:600;"></h4>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews">
+        <h2 class="section-title">Trekkers Feedback</h2>
+        <div class="reviews-container" id="reviewsList">
+            <div class="review-card">
+                <div class="review-header">
+                    <span>Vikram Malhotra (Mumbai)</span>
+                    <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+                <p>Tarsar Marsar route managed beautifully by the Kashmir Trails Pahalgam team. Highly recommended!</p>
+            </div>
+        </div>
+
+        <!-- Live Review Posting Form -->
+        <div class="form-container" style="box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 450px; margin-top:30px;">
+            <h4 style="margin-bottom:15px;">Write a Review</h4>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <input type="text" id="revName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="revText" placeholder="Share your experience..." style="height:70px;" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" style="padding:10px;">Submit Review</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Direct Contact Instead of Formspree Form -->
+    <section id="contact" class="bg-gray">
+        <h2 class="section-title">Connect For Booking & Custom Plans</h2>
+        <div class="contact-cards-container">
+            
+            <!-- Email Box -->
+            <div class="contact-action-card email-card">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <h3>Send Email Request</h3>
+                <p>Drop us your query for custom itineraries and pricing options.</p>
+                <a href="mailto:mirshakir316@gmail.com?subject=Kashmir%20Trails%20Inquiry" class="action-btn email-btn">Email Now</a>
+            </div>
+
+            <!-- WhatsApp Box -->
+            <div class="contact-action-card wa-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>Chat on WhatsApp</h3>
+                <p>Instant support, package details and quick custom tour planning.</p>
+                <a href="https://wa.me/919682626906?text=Hi%20Kashmir%20Trails,%20I%20want%20to%20plan%20a%20trip." target="_blank" class="action-btn wa-btn">WhatsApp Us</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Direct Contact Options Bar -->
+    <div class="contact-info-bar">
+        <span><i class="fa-solid fa-envelope"></i> Email Us: <a href="mailto:mirshakir316@gmail.com">mirshakir316@gmail.com</a></span> | 
+        <span><i class="fa-solid fa-phone"></i> WhatsApp / Call: <a href="https://wa.me/919682626906" target="_blank">+91 9682626906</a></span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Kashmir Trails Ltd.</h3>
+        <p style="font-size:13px; color:#64748b; margin: 5px 0 15px 0;"><i class="fa-solid fa-location-dot"></i> Main Head Office: Main Market, Opposite Tourism Center, Pahalgam, J&K</p>
+        <p style="font-size:12px; color:#475569;">&copy; 2026 Kashmir Trails Pahalgam. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive JS Scripts -->
+    <script>
+        // Permit Status Checker Function
+        function checkPermit() {
+            let loc = document.getElementById('permitLocation').value;
+            let res = document.getElementById('permitResult');
+            
+            if(loc === "tarsar") {
+                res.innerText = "📋 Local Wildlife Permit Required (Kashmir Trails will arrange this from Pahalgam Office)";
+            } else if(loc === "gulmarg") {
+                res.innerText = "⚠️ Phase 2 Backcountry Access Pass required during heavy snow windows.";
+            } else if(loc === "pangong") {
+                res.innerText = "🛑 LAHDC Inner Line Permit (ILP) Mandatory for all travelers.";
+            } else {
+                res.innerText = "✅ Standard sightseeing entry. No advance permit required.";
+            }
+        }
+
+        // Live Review Add Logic
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let name = document.getElementById('revName').value;
+            let text = document.getElementById('revText').value;
+            
+            let card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+                <div class="review-header">
+                    <span>${name}</span>
+                    <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+                <p>${text}</p>
+            `;
+            document.getElementById('reviewsList').appendChild(card);
+            alert("Thanks for your review, " + name + "!");
+            document.getElementById('reviewForm').reset();
+        });
+    </script>
+</body>
+</html>
